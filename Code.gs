@@ -6,9 +6,9 @@
 
 function onOpen(e) {
   FormApp.getUi()
-      .createAddonMenu()
-      .addItem('Configure notifications', 'showSidebar')
-      .addToUi();
+    .createAddonMenu()
+    .addItem('Configure notifications', 'showSidebar')
+    .addToUi();
 }
 
 function onInstall(e) {
@@ -17,7 +17,7 @@ function onInstall(e) {
 
 function showSidebar() {
   var ui = HtmlService.createHtmlOutputFromFile('Sidebar')
-      .setTitle('Telegram Bot Notifications');
+    .setTitle('Telegram Bot Notifications');
   FormApp.getUi().showSidebar(ui);
 }
 
@@ -43,9 +43,9 @@ function adjustFormSubmitTrigger() {
   }
   if (!existingTrigger) {
     var trigger = ScriptApp.newTrigger('respondToFormSubmit')
-        .forForm(form)
-        .onFormSubmit()
-        .create();
+      .forForm(form)
+      .onFormSubmit()
+      .create();
   }
 }
 
@@ -56,26 +56,25 @@ function respondToFormSubmit(e) {
   var message = settings.getProperty('message');
   var botApiToken = settings.getProperty('botApiToken');
   var chatId = settings.getProperty('chatId');
-  
+
   if (botApiToken === '' || chatId === '') {
     return;
   }
-  
+
   for (var i = 0; i < responses.length; i++) {
     var response = responses[i];
     var name = response.getItem().getTitle();
     var value = response.getResponse();
     var search = ('{' + name + '}').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    
+
     message = message.replace(new RegExp(search, 'g'), value);
   }
-  
+
   var url = 'https://api.telegram.org/bot' + botApiToken
     + '/sendMessage?chat_id=' + chatId
-    + '&parse_mode=MarkdownV2'
     + '&text=' + encodeURIComponent(message)
+    + '&parse_mode=html'
   UrlFetchApp.fetch(url);
 }
 
 // [END apps_script_forms_telegram_bot_notifications]
-
