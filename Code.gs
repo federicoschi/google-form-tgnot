@@ -72,6 +72,7 @@ function respondToFormSubmit(e) {
   
   var url = 'https://api.telegram.org/bot' + botApiToken
     + '/sendMessage?chat_id=' + chatId
+    + '&parse_mode=MarkdownV2'
     + '&text=' + encodeURIComponent(message)
   UrlFetchApp.fetch(url);
 }
