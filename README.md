@@ -14,10 +14,10 @@ This "script" is made for Google Scripts:
 ### How to send the notifications
 
 To open the main menu just press on the "puzzle" button and click on TELEGRAM API (Or the name of your deployment)
-
-Token --> You can get your token from botfather.
-CHAT ID --> Type /start in the chat where you want the message to be sent, and then go to this url https://api.telegram.org/bot<token>/getUpdates and then search for the chatID
-MESSAGE --> Type the message that you want to be sent (you can use {question} to insert the answer.
+\n
+\nToken --> You can get your token from botfather.
+\nCHAT ID --> Type /start in the chat where you want the message to be sent, and then go to this url https://api.telegram.org/bot<token>/getUpdates and then search for the chatID
+\nMESSAGE --> Type the message that you want to be sent (you can use {question} to insert the answer.
 ### Main Author
 
 [DASPRiD](https://github.com/DASPRiD)
