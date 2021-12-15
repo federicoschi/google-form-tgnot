@@ -20,6 +20,6 @@ Token --> You can get your token from botfather.
 CHAT ID --> Type /start in the chat where you want the message to be sent, and then go to this url https://api.telegram.org/bot<token>/getUpdates and then search for the chatID
 MESSAGE --> Type the message that you want to be sent (you can use {question} to insert the answer.
 ```
-### Main Author
+### Original Author
 
 [DASPRiD](https://github.com/DASPRiD)
